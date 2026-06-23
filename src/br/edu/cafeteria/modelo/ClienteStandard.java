@@ -1,4 +1,4 @@
-package br.edu.cafeteria.modelo.cliente;
+package br.edu.cafeteria.modelo;
 
 public class ClienteStandard extends Cliente {
     // Cliente Standard ganha XP normalmente, sem multiplicadores

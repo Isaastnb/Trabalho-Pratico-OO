@@ -1,4 +1,4 @@
-package br.edu.cafeteria.modelo.produtos;
+package br.edu.cafeteria.modelo;
 
 public enum TamanhoBebida {
     P, M, G

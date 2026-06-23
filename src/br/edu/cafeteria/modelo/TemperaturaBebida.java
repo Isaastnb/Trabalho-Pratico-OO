@@ -1,4 +1,4 @@
-package br.edu.cafeteria.modelo.produtos;
+package br.edu.cafeteria.modelo;
 
 public enum TemperaturaBebida {
     QUENTE, GELADA

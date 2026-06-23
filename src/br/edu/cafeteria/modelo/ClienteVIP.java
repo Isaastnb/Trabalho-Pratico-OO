@@ -1,4 +1,4 @@
-package br.edu.cafeteria.modelo.cliente;
+package br.edu.cafeteria.modelo;
 
 public class ClienteVIP extends Cliente {
     // Cliente VIP ganha XP em dobro
