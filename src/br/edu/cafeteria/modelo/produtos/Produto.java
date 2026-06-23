@@ -6,8 +6,11 @@ public class Produto {
     private double precoBase;
     private int quantidadeEstoque;
 
-    void reduzirEstoque(int quantidade) {
-        quantidadeEstoque -= quantidade;
+    public Produto(String codigo, String nome, double precoBase, int quantidadeEstoque) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.precoBase = precoBase;
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
     public String getCodigo() {
@@ -26,4 +29,7 @@ public class Produto {
         return quantidadeEstoque;
     }
 
+    void reduzirEstoque(int quantidade) {
+        quantidadeEstoque -= quantidade;
+    }
 }
