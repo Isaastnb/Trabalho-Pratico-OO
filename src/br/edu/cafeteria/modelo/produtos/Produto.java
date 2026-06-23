@@ -1,5 +1,5 @@
 package br.edu.cafeteria.modelo.produtos;
 
-public class Comida extends Produto {
+public abstract class Produto {
     
 }
