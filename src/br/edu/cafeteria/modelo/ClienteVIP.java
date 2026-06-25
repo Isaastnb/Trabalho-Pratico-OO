@@ -1,20 +1,28 @@
 package br.edu.cafeteria.modelo;
 
+import br.edu.cafeteria.excecao.PontosInsuficientesException;
+
 public class ClienteVIP extends Cliente {
-    // Cliente VIP ganha XP em dobro
-    @Override
-    public void ganharXP(int totalGasto) {
-        super.ganharXP(totalGasto * 2);
+
+    private static final int TAXA_CONVERSAO_XP = 10;
+
+    public ClienteVIP(String nome, String cpf) {
+        super(nome, cpf);
     }
 
-    public void resgatar(int precoTotal) {
-        int xpNecessario = precoTotal / 10;
+    @Override
+    public void adicionarXP(double valorGasto) {
+        int pontos = (int) valorGasto * 2;
+        somarXP(pontos);
+    }
 
-        if (this.obterXp() < xpNecessario) {
-            // TODO mudar dps
-            throw new IllegalStateException("XP insuficiente para resgatar o pedido.");
+    public void pagarComXP(double valorCompra) throws PontosInsuficientesException {
+        int pontosNecessarios = (int) (valorCompra * TAXA_CONVERSAO_XP);
+
+        if (getSaldoXP() < pontosNecessarios) {
+            throw new PontosInsuficientesException("Saldo de XP insuficiente. Necessário: " + pontosNecessarios);
         }
 
-        this.removerXp(xpNecessario);
+        subtrairXP(pontosNecessarios);
     }
-}
+}   

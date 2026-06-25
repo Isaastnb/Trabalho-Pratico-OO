@@ -24,7 +24,7 @@ public abstract class Cliente {
 
     public int getSaldoXP() {
         return saldoXP;
-    }
+    }   
 
     protected void somarXP(int pontos) {
         this.saldoXP += pontos;
