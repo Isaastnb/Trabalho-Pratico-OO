@@ -8,7 +8,9 @@ public abstract class Menu {
     public void tratarComando(String comando) {}
 
     public Menu pegarProximoMenu() {
-        return proximoMenu;
+        Menu proximo = proximoMenu;
+        proximoMenu = null; // Limpa para evitar transições fantasmas caso o menu seja reutilizado
+        return proximo != null ? proximo : this;
     }
 
     protected void setProximoMenu(Menu proximoMenu) {

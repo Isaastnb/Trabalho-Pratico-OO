@@ -1,6 +1,7 @@
 package br.edu.cafeteria.servico;
-import br.edu.cafeteria.modelo.venda.Pedido;
+
+// import br.edu.cafeteria.modelo.Pedido;
 
 public interface Promocional {
-    public void aplicarDesconto(Pedido pedido);
+    public double aplicarDesconto(double porcentagem);
 }
