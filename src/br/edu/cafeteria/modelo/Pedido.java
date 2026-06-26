@@ -26,11 +26,6 @@ public class Pedido {
         ItemPedido novoItem = new ItemPedido(p, quantidade);
         this.itens.add(novoItem);
     }
-
-    /*public void adicionarItem(Produto p) throws EstoqueInsuficienteException {
-        adicionarItem(p, 1);
-    }*/
-
     
     
     public double calcularTotal(boolean isDiaEventoGeek) {
@@ -66,6 +61,4 @@ public class Pedido {
     public List<ItemPedido> getItens() {
         return itens;
     }
-
-
 }
