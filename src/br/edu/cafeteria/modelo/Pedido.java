@@ -20,17 +20,19 @@ public class Pedido {
         this.cliente = cliente;
         this.itens = new ArrayList<>();
     }
-
-    public void adicionarItem(Produto p) throws EstoqueInsuficienteException {
-        adicionarItem(p, 1);
-    }
-
+    
     public void adicionarItem(Produto p, int quantidade) throws EstoqueInsuficienteException {
         p.reduzirEstoque(quantidade);
         ItemPedido novoItem = new ItemPedido(p, quantidade);
         this.itens.add(novoItem);
     }
 
+    /*public void adicionarItem(Produto p) throws EstoqueInsuficienteException {
+        adicionarItem(p, 1);
+    }*/
+
+    
+    
     public double calcularTotal(boolean isDiaEventoGeek) {
         double total = 0;
 
@@ -64,4 +66,6 @@ public class Pedido {
     public List<ItemPedido> getItens() {
         return itens;
     }
+
+
 }
