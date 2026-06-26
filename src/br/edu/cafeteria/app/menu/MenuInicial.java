@@ -6,6 +6,7 @@ public class MenuInicial extends Menu {
     @Override
     public void exibirComandos() {
         System.out.println("produtos: Acessar menu de produtos");
+        System.out.println("clientes: Acessar menu de clientes");
         super.exibirComandos();
     }
 
@@ -14,6 +15,9 @@ public class MenuInicial extends Menu {
         switch (comando) {
             case "produtos":
                 super.setProximoMenu(new MenuProdutos());
+                return;
+            case "clientes":
+                super.setProximoMenu(new MenuClientes());
                 return;
         }
 

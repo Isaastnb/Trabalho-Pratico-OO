@@ -10,11 +10,19 @@ public class Estoque {
         produtos.put(codigo, produto);
     }
 
-    public static ArrayList<Produto> getProdutos() {
+    public static ArrayList<Produto> listarProdutos() {
         return new ArrayList<>(produtos.values());
     }
 
     public static Produto getProduto(String codigo) {
         return produtos.get(codigo);
+    }
+
+    public static void removerProduto(String codigo) {
+        produtos.remove(codigo);
+    }
+
+    public static void atualizarProduto(String codigo, Produto produto) {
+        produtos.put(codigo, produto);
     }
 }

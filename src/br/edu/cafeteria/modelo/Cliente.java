@@ -6,7 +6,7 @@ public abstract class Cliente {
     private String cpf;
     private int saldoXP;
 
-    public Cliente(String nome, String cpf) {
+    public Cliente(String cpf, String nome) {
         this.nome = nome;
         this.cpf = cpf;
         this.saldoXP = 0;

@@ -1,17 +1,19 @@
 package br.edu.cafeteria.app.menu;
 
+import java.util.ArrayList;
+
 import br.edu.cafeteria.modelo.Estoque;
 import br.edu.cafeteria.modelo.Produto;
 
 public class MenuProdutos extends Menu {
     private static final String MENU_NAME = "Menu de Produtos";
 
-
     @Override
     public void exibirComandos() {
         System.out.println("adicionar <código> <nome> <preço> <quantidade>: Adicionar produto ao estoque");
         System.out.println("listar: Listar produtos");
         System.out.println("buscar <código>: Buscar produto pelo código");
+        System.out.println("remover <código>: Remover produto do estoque");
         System.out.println("voltar: Voltar ao menu inicial");
         super.exibirComandos();
     }
@@ -41,8 +43,14 @@ public class MenuProdutos extends Menu {
                 return;
 
             case "listar":
+                ArrayList<Produto> produtos = Estoque.listarProdutos();
+                if (produtos.isEmpty()) {
+                    System.out.println("Nenhum produto cadastrado.");
+                    return;
+                }
+
                 System.out.println("Produtos no estoque:");
-                for (Produto produto : Estoque.getProdutos()) {
+                for (Produto produto : produtos) {
                     System.out.printf("Código: %s, Nome: %s, Preço: R$ %.2f, Quantidade: %d%n", produto.getCodigo(), produto.getNome(), produto.getPrecoBase(), produto.getQuantidadeEstoque());
                 }
                 return;
@@ -58,6 +66,15 @@ public class MenuProdutos extends Menu {
                 } else {
                     System.out.println("Produto não encontrado.");
                 }
+                return;
+            case "remover":
+                if (argumentos.length < 1) {
+                    System.out.println("Uso: remover <código>");
+                    return;
+                }
+
+                Estoque.removerProduto(argumentos[0]);
+                System.out.println("Produto removido do estoque.");
                 return;
             case "voltar":
                 super.setProximoMenu(new MenuInicial());

@@ -5,6 +5,8 @@ public abstract class Menu {
     private static final String MENU_NAME = "Menu";
 
     public void exibirComandos() {
+        System.out.println();
+        System.out.println("Comandos globais:");
         System.out.println("sair: Sair do programa");
         System.out.println("comandos: Exibir lista de comandos disponíveis");
     }
