@@ -37,4 +37,8 @@ public class Produto {
         }
         quantidadeEstoque -= quantidade;
     }
+
+    public void adicionarEstoque(int quantidade) {
+        quantidadeEstoque += quantidade;
+    }
 }
