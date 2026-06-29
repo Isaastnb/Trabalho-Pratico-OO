@@ -22,9 +22,13 @@ public abstract class Cliente {
         return cpf;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getSaldoXP() {
         return saldoXP;
-    }   
+    }
 
     protected void somarXP(int pontos) {
         this.saldoXP += pontos;

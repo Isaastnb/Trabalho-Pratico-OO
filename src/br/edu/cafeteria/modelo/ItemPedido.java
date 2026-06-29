@@ -10,7 +10,7 @@ public class ItemPedido {
         this.quantidade = quantidade;
     }
 
-    public double calcularSubtotal() {
+    public float calcularSubtotal() {
         return produto.getPrecoBase() * quantidade;
     }
 

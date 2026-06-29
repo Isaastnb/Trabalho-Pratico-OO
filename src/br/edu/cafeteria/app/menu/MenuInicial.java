@@ -7,6 +7,7 @@ public class MenuInicial extends Menu {
     public void exibirComandos() {
         System.out.println("produtos: Acessar menu de produtos");
         System.out.println("clientes: Acessar menu de clientes");
+        System.out.println("pedidos: Acessar menu de pedidos");
         super.exibirComandos();
     }
 
@@ -18,6 +19,9 @@ public class MenuInicial extends Menu {
                 return;
             case "clientes":
                 super.setProximoMenu(new MenuClientes());
+                return;
+            case "pedidos":
+                super.setProximoMenu(new MenuPedidos());
                 return;
         }
 

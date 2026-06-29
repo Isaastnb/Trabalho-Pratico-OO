@@ -5,10 +5,10 @@ import br.edu.cafeteria.excecao.EstoqueInsuficienteException;
 public class Produto {
     private String codigo;
     private String nome;
-    private double precoBase;
+    private float precoBase;
     private int quantidadeEstoque;
 
-    public Produto(String codigo, String nome, double precoBase, int quantidadeEstoque) {
+    public Produto(String codigo, String nome, float precoBase, int quantidadeEstoque) {
         this.codigo = codigo;
         this.nome = nome;
         this.precoBase = precoBase;
@@ -23,12 +23,24 @@ public class Produto {
         return nome;
     }
 
-    public double getPrecoBase() {
+    public float getPrecoBase() {
         return precoBase;
     }
 
     public int getQuantidadeEstoque() {
         return quantidadeEstoque;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(float precoBase) {
+        this.precoBase = precoBase;
+    }
+
+    public void setQuantidadeEstoque(int quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
     public void reduzirEstoque(int quantidade) {

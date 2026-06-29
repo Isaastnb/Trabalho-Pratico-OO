@@ -1,12 +1,14 @@
 package br.edu.cafeteria.modelo;
 
-public class Comida extends Produto {
+import br.edu.cafeteria.servico.Promocional;
+
+public class Comida extends Produto implements Promocional {
     
     private int tempoPreparo;
     private boolean isVegano;
     private boolean isSemGluten;
     
-    public Comida(String codigo, String nome, double precoBase, int quantidadeEstoque,
+    public Comida(String codigo, String nome, float precoBase, int quantidadeEstoque,
                   int tempoPreparo, boolean isVegano, boolean isSemGluten) {
         
         super(codigo, nome, precoBase, quantidadeEstoque);
@@ -26,5 +28,11 @@ public class Comida extends Produto {
 
     public boolean isVegano() {
         return isVegano;
+    }
+
+    @Override
+    public float aplicarDesconto(float percentual) {
+        float desconto = getPrecoBase() * (percentual / 100.0f);
+        return getPrecoBase() - desconto;
     }
 }

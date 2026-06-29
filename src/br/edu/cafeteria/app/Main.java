@@ -22,8 +22,8 @@ public class Main {
 
                 System.out.print(menuAtual.getMenuName() + " >> ");
                 String linha = scanner.nextLine();
-                String[] linhaArgs = linha.toLowerCase().trim().split(" ");
-                String comando = linhaArgs[0];
+                String[] linhaArgs = linha.trim().split(" ");
+                String comando = linhaArgs[0].toLowerCase();
                 String[] argumentos = linhaArgs.length > 1 ? Arrays.copyOfRange(linhaArgs, 1, linhaArgs.length) : new String[0];
 
                 menuAtual.tratarComando(comando, argumentos);
