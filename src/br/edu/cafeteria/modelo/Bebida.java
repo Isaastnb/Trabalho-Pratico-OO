@@ -8,7 +8,7 @@ public class Bebida extends Produto implements Promocional {
     private int miligramasCafeina;
     private TemperaturaBebida temperatura;
 
-    public Bebida(String codigo, String nome, double precoBase, int quantidadeEstoque,
+    public Bebida(String codigo, String nome, float precoBase, int quantidadeEstoque,
             TamanhoBebida tamanho, int miligramasCafeina, TemperaturaBebida temperatura) {
 
         super(codigo, nome, precoBase, quantidadeEstoque);
@@ -19,8 +19,8 @@ public class Bebida extends Produto implements Promocional {
     }
 
     @Override
-    public double aplicarDesconto(double percentual) {
-        double desconto = getPrecoBase() * (percentual / 100.0);
+    public float aplicarDesconto(float percentual) {
+        float desconto = getPrecoBase() * (percentual / 100.0f);
         return getPrecoBase() - desconto;
     }
 

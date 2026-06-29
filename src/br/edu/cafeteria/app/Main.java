@@ -1,6 +1,7 @@
 package br.edu.cafeteria.app;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 import br.edu.cafeteria.app.menu.Menu;
 import br.edu.cafeteria.app.menu.MenuInicial;
@@ -10,22 +11,22 @@ public class Main {
         System.out.println("Bem-vindo à Cafeteria Geek \"Byte & Brew\"!");
         System.out.println();
 
-        // Estados
-        //
-
         Menu menuAtual = new MenuInicial();
+        System.out.println("-------------COMANDOS-------------");
+        menuAtual.exibirComandos();
+        System.out.println("----------------------------------");
 
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
-                System.out.println("-------------COMANDOS-------------");
-                menuAtual.exibirComandos();
-                System.out.println("----------------------------------");
                 System.out.println();
 
-                System.out.print(">> ");
+                System.out.print(menuAtual.getMenuName() + " >> ");
                 String linha = scanner.nextLine();
+                String[] linhaArgs = linha.trim().split(" ");
+                String comando = linhaArgs[0].toLowerCase();
+                String[] argumentos = linhaArgs.length > 1 ? Arrays.copyOfRange(linhaArgs, 1, linhaArgs.length) : new String[0];
 
-                menuAtual.tratarComando(linha.toLowerCase().trim());
+                menuAtual.tratarComando(comando, argumentos);
 
                 menuAtual = menuAtual.pegarProximoMenu();
             }
